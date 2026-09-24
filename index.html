@@ -365,6 +365,37 @@ footer a{text-underline-offset:3px}
 .lk:hover .ar.dn{transform:translateY(2px);}
 @media (prefers-reduced-motion:reduce){.seq{animation:none}.ping::before{display:none}}
 
+
+/* ===== Résumé preview ===== */
+.rs{display:grid;gap:24px;align-items:start}
+@media (min-width:980px){.rs{grid-template-columns:1.25fr .75fr;gap:32px}}
+.paper{position:relative;display:block;width:100%;padding:0;border:0;cursor:zoom-in;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(2,6,23,.06),0 30px 60px -30px rgba(2,6,23,.35);overflow:hidden;outline-offset:4px;transition:transform .3s,box-shadow .3s}
+@media (hover:hover){.paper:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(2,6,23,.06),0 40px 80px -30px rgba(2,6,23,.45)}}
+.paper img{display:block;width:100%;height:auto;aspect-ratio:1700/2200}
+.paper .zoom{position:absolute;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:rgba(2,6,23,.82);color:#fff;font:600 13px/1 var(--sans);backdrop-filter:blur(6px)}
+.paper .zoom svg{width:15px;height:15px}
+.rs-side{display:grid;gap:12px}
+.rs-side .tile{padding:20px}
+.rs-actions{display:grid;gap:10px}
+.btn-dark{background:var(--night-2);color:#F8FAFC;border-color:var(--night-3)}
+.btn-dark:hover{filter:brightness(1.15)}
+.btn-soft{background:var(--surface);color:var(--ink);border-color:var(--line-2)}
+.btn-soft:hover{border-color:var(--ink-2)}
+.facts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.facts li{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;color:var(--ink-2);padding-bottom:10px;border-bottom:1px dashed var(--line-2)}
+.facts li:last-child{border-bottom:0;padding-bottom:0}
+.facts b{font:600 14px/1.4 var(--mono);color:var(--ink);text-align:right}
+dialog.viewer{padding:0;border:0;background:transparent;max-width:min(960px,100vw);width:100%;max-height:100dvh;overflow:visible}
+dialog.viewer::backdrop{background:rgba(2,6,23,.78);backdrop-filter:blur(6px)}
+.viewer-in{position:relative;margin:0 auto;max-height:100dvh;overflow:auto;padding:64px 12px 24px;-webkit-overflow-scrolling:touch}
+.viewer-in img{display:block;width:100%;height:auto;border-radius:10px;background:#fff;box-shadow:0 30px 80px -20px rgba(0,0,0,.6)}
+.viewer-bar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:2;display:flex;gap:8px;padding:6px;border-radius:999px;background:rgba(2,6,23,.85);border:1px solid rgba(148,163,184,.2)}
+.viewer-bar a,.viewer-bar button{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;border:0;background:rgba(148,163,184,.14);color:#F1F5F9;font:600 13.5px/1 var(--sans);text-decoration:none;cursor:pointer}
+.viewer-bar a:hover,.viewer-bar button:hover{background:rgba(148,163,184,.26)}
+.viewer-bar .x{background:var(--glow);color:#03140D}
+@media (max-width:700px){.viewer-in{overflow:auto;padding:64px 12px 24px}.viewer-in img{width:760px;max-width:none}.viewer-hint{display:block}}
+.viewer-hint{display:none;text-align:center;font:500 12px/1.4 var(--mono);color:#CBD5E1;margin:0 0 10px;position:sticky;left:0}
+
 /* Reveal */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -388,7 +419,7 @@ footer a{text-underline-offset:3px}
         <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M5 19v-6M10 19V9M15 19v-4M20 19V5"/></svg>B.&nbsp;Ranawat
       </a>
       <div class="nav-links">
-        <a href="#why">Why REX</a><a href="#evidence">Evidence</a><a href="#approach">Approach</a><a href="#sample">Sample</a><a href="#plan">90 days</a>
+        <a href="#why">Why REX</a><a href="#evidence">Evidence</a><a href="#approach">Approach</a><a href="#sample">Sample</a><a href="#plan">90 days</a><a href="#resume">Résumé</a>
       </div>
       <button class="nav-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" aria-pressed="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -417,7 +448,7 @@ footer a{text-underline-offset:3px}
         <div class="ctas seq" style="--i:4">
           <a class="btn btn-glow" href="#plan">See my 90-day plan <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-line" href="#evidence">View my experience</a>
-          <a class="btn btn-line" href="Bhumanyu_Ranawat_Resume.pdf" download>Résumé PDF</a>
+          <a class="btn btn-line" href="#resume" data-open-resume>Preview résumé</a>
         </div>
         <div class="chips seq" style="--i:5" aria-label="Core skills">
           <span class="chip">Month-end close</span><span class="chip">Variance analysis</span><span class="chip">Capex &amp; OPEX</span><span class="chip">Forecasting</span><span class="chip">SAP S/4HANA</span><span class="chip">Power BI</span><span class="chip">SQL</span>
@@ -702,13 +733,60 @@ footer a{text-underline-offset:3px}
   </div>
 </section>
 
+<!-- ===== 06 RÉSUMÉ ===== -->
+<section id="resume" aria-labelledby="rs-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="kicker">06 · Résumé</span>
+      <h2 id="rs-h">The full picture, <span class="serif">on one page.</span></h2>
+      <p>Tap the page to open it full size, or download the PDF.</p>
+    </div>
+    <div class="rs">
+      <button type="button" class="paper rv" data-open-resume aria-label="Open résumé preview full size">
+        <img src="resume-preview.webp" width="1700" height="2200" loading="lazy" decoding="async" alt="One-page résumé of Bhumanyu Singh Ranawat: FP&amp;A experience at Hitachi Energy, Macleods Pharmaceuticals, Morningstar capstone and DNS Hospitals; MS Business Analytics, DePaul; BBA Finance, NMIMS.">
+        <span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>View full size</span>
+      </button>
+      <div class="rs-side">
+        <div class="tile rv">
+          <span class="lbl">At a glance</span>
+          <ul class="facts">
+            <li>Current<b>Hitachi Energy · FP&amp;A</b></li>
+            <li>Experience<b>2+ years</b></li>
+            <li>Focus<b>Close · Variance · Capex</b></li>
+            <li>Systems<b>SAP S/4HANA · Power BI</b></li>
+            <li>Education<b>MS BA, DePaul · 4.0</b></li>
+            <li>Certification<b>CMA in progress</b></li>
+          </ul>
+        </div>
+        <div class="rs-actions rv">
+          <a class="btn btn-dark" href="Bhumanyu_Ranawat_Resume.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download PDF</a>
+          <a class="btn btn-soft" href="Bhumanyu_Ranawat_Resume.pdf" target="_blank" rel="noopener">Open PDF in new tab ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="viewer" id="resumeViewer" aria-label="Résumé preview">
+  <div class="viewer-bar">
+    <a href="Bhumanyu_Ranawat_Resume.pdf" download>Download</a>
+    <a href="Bhumanyu_Ranawat_Resume.pdf" target="_blank" rel="noopener">Open PDF</a>
+    <button type="button" class="x" data-close-resume>Close ✕</button>
+  </div>
+  <div class="viewer-in">
+    <p class="viewer-hint">Swipe to pan · pinch to zoom</p>
+    <img src="resume-preview.webp" width="1700" height="2200" alt="Résumé of Bhumanyu Singh Ranawat, full size">
+  </div>
+</dialog>
+
 <!-- ===== 06 CONTACT ===== -->
 <section id="contact" aria-labelledby="ct-h" style="padding-top:0">
   <div class="wrap">
     <div class="cta rv">
       <div class="cta-grid">
         <div>
-          <span class="kicker" style="color:var(--glow)">06 · Contact</span>
+          <span class="kicker" style="color:var(--glow)">07 · Contact</span>
           <h2 id="ct-h" style="margin-top:14px">Let's talk about <span class="serif">supporting REX.</span></h2>
           <p>Month-end close, capex and project-cost tracking, and clear conversations with budget owners. Based in Chicago.</p>
         </div>
@@ -855,6 +933,19 @@ function countUp(el){
 (function(){
   var go=function(){document.querySelectorAll('.hero [data-w]').forEach(function(i){i.style.width=i.dataset.w+'%'});document.querySelectorAll('.hero [data-count]').forEach(countUp);};
   RM?go():setTimeout(go,450);
+})();
+
+/* Résumé viewer */
+(function(){
+  var dlg=document.getElementById('resumeViewer'); if(!dlg||!dlg.showModal) return;
+  var last=null;
+  document.querySelectorAll('[data-open-resume]').forEach(function(el){
+    el.addEventListener('click',function(e){e.preventDefault();last=el;dlg.showModal();document.body.style.overflow='hidden';});
+  });
+  var close=function(){dlg.close();};
+  dlg.querySelector('[data-close-resume]').addEventListener('click',close);
+  dlg.addEventListener('click',function(e){if(e.target===dlg||e.target.classList.contains('viewer-in'))close();});
+  dlg.addEventListener('close',function(){document.body.style.overflow='';if(last)last.focus();});
 })();
 
 /* Scroll progress + active nav */
